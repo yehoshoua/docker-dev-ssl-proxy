@@ -1,9 +1,8 @@
 server {
-  listen 443;
-  ssl on;
+  listen 443 ssl;
   ssl_certificate /ssl/cert.pem;
   ssl_certificate_key /ssl/key.pem;
   location / {
-     proxy_pass http://localhost:8080;
+     proxy_pass ${PROXY_ADDRESS};
   }
 }

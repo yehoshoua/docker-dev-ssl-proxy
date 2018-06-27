@@ -1,20 +1,16 @@
-FROM ubuntu:xenial
+FROM nginx
 
-RUN apt-get update
-
-RUN apt-get install -y \
-	nginx \
-	openssl \
-	supervisor
+# TODO: Clean up apt-get config
+RUN apt-get update \
+	&& apt-get install openssl
 
 # Generate our self-signed certificate
 RUN mkdir -p /ssl
 WORKDIR /ssl
 RUN openssl req -subj '/CN=localhost' -x509 -newkey rsa:4096 -nodes -keyout key.pem -out cert.pem -days 365
 
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-COPY proxy /etc/nginx/sites-enabled/default
+COPY virtual-site.template /etc/nginx/conf.d/virtual-site.template
 
-WORKDIR /
-
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+# CMD ["nginx", "-g", "daemon off;"]
+# /bin/bash -c "envsubst < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
+CMD ["/bin/bash", "-c", "envsubst < /etc/nginx/conf.d/virtual-site.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"]
