@@ -1,8 +1,8 @@
 FROM nginx
 
-# TODO: Clean up apt-get config
 RUN apt-get update \
-	&& apt-get install openssl
+	&& apt-get install openssl \
+	&& rm -rf /var/lib/apt/lists/*
 
 # Generate our self-signed certificate
 RUN mkdir -p /ssl
