@@ -11,6 +11,4 @@ RUN openssl req -subj '/CN=localhost' -x509 -newkey rsa:4096 -nodes -keyout key.
 
 COPY virtual-site.template /etc/nginx/conf.d/virtual-site.template
 
-# CMD ["nginx", "-g", "daemon off;"]
-# /bin/bash -c "envsubst < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
 CMD ["/bin/bash", "-c", "envsubst < /etc/nginx/conf.d/virtual-site.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"]
