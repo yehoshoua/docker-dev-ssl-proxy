@@ -1,6 +1,8 @@
-A simple nginx proxy which creates a self-signed SSL certificate for local development.
+A simple nginx proxy behind a self-generated & self-signed SSL certificate.
 
 # Building
+
+Note: Building this package creates a new SSL certificate automatically.
 
 ```
 docker build -t docker-dev-ssl-proxy .
