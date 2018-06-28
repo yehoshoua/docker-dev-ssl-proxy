@@ -5,6 +5,6 @@ services:
     build: .
     network_mode: "host"
     environment:
-      - PROXY_ADDRESS="http://localhost:8080"
+      - PROXY_ADDRESS=http://localhost:8080 # Important, don't use quotations here, or it may break the template
     ports:
       - 443:443
