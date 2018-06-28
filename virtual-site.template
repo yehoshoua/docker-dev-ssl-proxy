@@ -1,6 +1,6 @@
 map ${DOLLAR}http_upgrade ${DOLLAR}connection_upgrade {
-    default upgrade;
-    ''      close;
+  default upgrade;
+  ''  close;
 }
 server {
   listen 443 ssl;
