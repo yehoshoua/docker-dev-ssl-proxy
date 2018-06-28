@@ -1,4 +1,4 @@
-A simple nginx proxy behind a self-generated & self-signed SSL certificate.
+A simple nginx proxy behind a self-generated & self-signed SSL certificate, with included support for WebSocket proxying.
 
 # Building
 
@@ -17,5 +17,7 @@ docker run --net=host -e PROXY_ADDRESS="http://localhost:8080" docker-dev-ssl-pr
 ```
 
 Then navigate to https://localhost in your browser.
+
+Note that WebSocket proxying is set to the /socket.io path. At this time, you'll need to update virtual-site.template manually if you wish to change this path.
 
 Also, note the included docker-compose.yml file if you wish to use Docker Compose.
