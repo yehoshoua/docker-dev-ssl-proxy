@@ -1,5 +1,7 @@
 A simple nginx proxy behind a self-generated & self-signed SSL certificate, with included support for WebSocket proxying.
 
+For production usage, you may want to consider using LetsEncrypt w/ Docker https://github.com/linuxserver/docker-letsencrypt.
+
 # Building
 
 Note: Building this package creates a new SSL certificate automatically.
