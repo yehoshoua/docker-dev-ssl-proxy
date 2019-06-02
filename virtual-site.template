@@ -17,4 +17,11 @@ server {
     proxy_set_header Upgrade ${DOLLAR}http_upgrade;
     proxy_set_header Connection ${DOLLAR}connection_upgrade;
   }
+
+  location /sockjs-node {
+    proxy_pass ${PROXY_ADDRESS}/sockjs-node;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade ${DOLLAR}http_upgrade;
+    proxy_set_header Connection ${DOLLAR}connection_upgrade;
+  }
 }
