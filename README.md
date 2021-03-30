@@ -2,7 +2,7 @@ A simple nginx proxy behind a self-generated & self-signed SSL certificate, with
 
 For production usage, you may want to consider using LetsEncrypt w/ Docker https://github.com/linuxserver/docker-letsencrypt.
 
-Note, for those who would rather build this sort of thing from scratch, here's an article written by the author of the original package we forked from:  https://devblogs.microsoft.com/cse/2018/01/29/orchestrating-turn-servers-cloud-deployment
+Note, for those who would rather build this sort of thing from scratch, here's an article written by the author of the original package we forked from:  https://devblogs.microsoft.com/cse/2018/01/29/orchestrating-turn-servers-cloud-deployment.
 
 # Building
 
