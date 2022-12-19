@@ -9,6 +9,7 @@ server {
   
   location / {
     proxy_pass ${PROXY_ADDRESS};
+    proxy_pass_request_headers      on;
   }
   
   location /socket.io {
